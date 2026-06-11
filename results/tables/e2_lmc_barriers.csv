@@ -1,0 +1,4 @@
+pair,ckpt1,ckpt2,barrier_test_loss,barrier_test_acc
+e2_model0_x_e2_model2,e2_model0.pt,e2_model2.pt,2.3499236445426943,0.5866499999999999
+e2_model1_x_e2_model4,e2_model1.pt,e2_model4.pt,1.6333104047298432,0.4784500000000001
+e2_model2_x_baseline,e2_model2.pt,baseline_seed0.pt,2.6893937038660045,0.62175

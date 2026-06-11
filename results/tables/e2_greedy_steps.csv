@@ -1,0 +1,6 @@
+step,candidate_orig_idx,candidate_acc_alone,soup_acc_after,included,n_in_soup
+0,2,0.766400000667572,0.7866,True,1
+1,4,0.7552000002861023,0.7866,False,1
+2,3,0.7513000008583068,0.7866,False,1
+3,0,0.7487999994277954,0.7866,False,1
+4,1,0.7430999997138977,0.7866,False,1
