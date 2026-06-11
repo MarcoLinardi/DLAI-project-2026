@@ -1,0 +1,30 @@
+# E1 setting D — different initialization AND disjoint data.
+# Caso massimamente disgiunto: i due modelli partono da punti diversi
+# in θ-space e vedono dati diversi → finiscono in valli separate da
+# creste. Barriera attesa: alta (~0.5–2.0 test_loss, accuracy crolla
+# a 30–50% al centro). Skipping setting C (diff-init + same-data) come
+# ridondante per il messaggio scientifico.
+
+epochs: 30
+batch_size: 128
+lr: 0.1
+momentum: 0.9
+weight_decay: 0.0001
+nesterov: true
+scheduler: cosine
+num_workers: 2
+data_root: ./data
+checkpoint_dir: results/checkpoints
+history_dir: results/tables
+augment: true
+log_every: 100
+
+e1:
+  setting: "D"
+  same_init: false
+  split_data: true
+  n_parts: 2
+  partition_seed: 7
+  pair_seeds: [0, 1]
+  alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  bn_reset_batches: 40

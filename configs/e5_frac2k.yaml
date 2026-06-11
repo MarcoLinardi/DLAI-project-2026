@@ -1,0 +1,25 @@
+# E5 — Data fraction study: 2k samples per model (n_parts=25, 5 models)
+epochs: 30
+batch_size: 128
+lr: 0.1
+momentum: 0.9
+weight_decay: 0.0001
+nesterov: true
+scheduler: cosine
+num_workers: 2
+data_root: ./data
+checkpoint_dir: results/checkpoints/e5_2k
+history_dir: results/tables/e5_2k
+augment: true
+log_every: 100
+
+e2:
+  n_models: 5
+  n_parts: 25
+  partition_seed: 11
+  init_seed: 0
+  baseline_checkpoint: results/checkpoints/baseline_seed0.pt
+  bn_reset_batches: 200
+  ties:
+    keep_ratio: 0.20
+    lam: 1.0

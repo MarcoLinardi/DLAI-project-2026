@@ -1,0 +1,41 @@
+# E3 — Permutation Alignment (Git Re-Basin, Ainsworth et al. 2023).
+# For each pair (ckpt1, ckpt2): evaluate barrier_pre (raw interpolation),
+# align ckpt2 to ckpt1 with activation matching, evaluate barrier_post.
+# No retraining. bn_reset_batches=200 to match the protocol used in E2.
+
+epochs: 0
+batch_size: 128
+num_workers: 2
+data_root: ./data
+checkpoint_dir: results/checkpoints
+history_dir: results/tables
+augment: true
+
+e3:
+  pairs:
+    # Case 1: paper-classic, diff init + split data (E1 setting D). Barrier
+    # pre-align expected ~0.5–1.5; post-align expected <0.2 (Ainsworth 2023).
+    - name: "E1D_pair0"
+      ckpt1: results/checkpoints/e1D_pair0_m1.pt
+      ckpt2: results/checkpoints/e1D_pair0_m2.pt
+    # Case 2: low-resource regime that broke E2 soup (same init, 10k samples
+    # per model). Barrier pre-align measured at ~2.4; post-align expected <0.5.
+    - name: "E2_model0x2"
+      ckpt1: results/checkpoints/e2_model0.pt
+      ckpt2: results/checkpoints/e2_model2.pt
+    # Cases 3-5: three additional low-resource pairs sampled across the 10
+    # unique E2 combinations, to turn the single-pair E3 result into mean±std
+    # over n=4 low-resource pairs (E2_model0x2 + these three).
+    - name: "E2_model0x1"
+      ckpt1: results/checkpoints/e2_model0.pt
+      ckpt2: results/checkpoints/e2_model1.pt
+    - name: "E2_model1x3"
+      ckpt1: results/checkpoints/e2_model1.pt
+      ckpt2: results/checkpoints/e2_model3.pt
+    - name: "E2_model3x4"
+      ckpt1: results/checkpoints/e2_model3.pt
+      ckpt2: results/checkpoints/e2_model4.pt
+  alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  bn_reset_batches: 200
+  align_n_samples: 512
+  align_max_iters: 5      # iterative AM (Ainsworth 2023 §3.3); converges in 3-5 iters

@@ -1,0 +1,27 @@
+# Baseline training of ResNet-20 on CIFAR-10.
+# Paper-aligned (He et al. 2015), with epochs reduced from 200 to 50
+# as a Colab-T4-friendly compromise. Expected test accuracy: ~90%.
+
+epochs: 50
+batch_size: 128
+
+# Optimizer (SGD with Nesterov momentum + L2 weight decay)
+lr: 0.1
+momentum: 0.9
+weight_decay: 0.0001
+nesterov: true
+
+# LR schedule: cosine annealing from `lr` to 0 over `epochs` epochs.
+scheduler: cosine
+
+# Data loading
+num_workers: 2
+data_root: ./data
+augment: true
+
+# Output paths
+checkpoint_dir: results/checkpoints
+history_dir: results/tables
+
+# Misc
+log_every: 100

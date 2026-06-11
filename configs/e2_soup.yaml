@@ -1,0 +1,30 @@
+# E2 — Task arithmetic / Model soup.
+# 5 modelli ResNet-20, stessa init (init_seed=0 = baseline_seed0),
+# 5 split disgiunti di CIFAR-10 da 10k esempi (partition_seed=11,
+# ortogonale a partition_seed=7 di E1). 4 metodi di merging:
+# Best (baseline interno), Uniform, Greedy (Wortsman 2022), TIES (Yadav 2023).
+
+epochs: 30
+batch_size: 128
+lr: 0.1
+momentum: 0.9
+weight_decay: 0.0001
+nesterov: true
+scheduler: cosine
+num_workers: 2
+data_root: ./data
+checkpoint_dir: results/checkpoints
+history_dir: results/tables
+augment: true
+log_every: 100
+
+e2:
+  n_models: 5
+  n_parts: 5
+  partition_seed: 11
+  init_seed: 0
+  baseline_checkpoint: results/checkpoints/baseline_seed0.pt
+  bn_reset_batches: 200   # alzato da 40 → 200 dopo che con 40 batch il soup uniforme di 5 modelli crollava al ~13% (BN running stats troppo rumorose su pesi mediati). 200 batch ≈ 25k esempi = mezzo train set, stabilizza la BN anche su soup di 5 modelli.
+  ties:
+    keep_ratio: 0.20
+    lam: 1.0

@@ -1,0 +1,21 @@
+# E5 — AM+REPAIR alignment config for 2k fraction models
+epochs: 0
+batch_size: 128
+num_workers: 2
+data_root: ./data
+checkpoint_dir: results/checkpoints/e5_2k
+history_dir: results/tables/e5_2k
+augment: true
+
+e3:
+  pairs:
+    - name: "e5_2k_m0xm2"
+      ckpt1: results/checkpoints/e5_2k/e2_model0.pt
+      ckpt2: results/checkpoints/e5_2k/e2_model2.pt
+    - name: "e5_2k_m0xm1"
+      ckpt1: results/checkpoints/e5_2k/e2_model0.pt
+      ckpt2: results/checkpoints/e5_2k/e2_model1.pt
+  alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  bn_reset_batches: 200
+  align_n_samples: 512
+  align_max_iters: 5
