@@ -1,4 +1,4 @@
-"""REPAIR — mini fine-tune of the merged (post-alignment) model.
+"""REPAIR, mini fine-tune of the merged (post-alignment) model.
 
 After Activation Matching reduces but does not close the barrier (E3),
 the merged model (theta_A + theta_B_aligned)/2 still sits in a sub-optimal
@@ -14,9 +14,6 @@ For each pair listed in the E3 config:
      low LR (default 0.001, momentum 0.9, weight decay 1e-4).
   5. Evaluate on test set and persist results.
 
-CLI:
-    python -m src.experiments.e3_repair --config configs/e3_align.yaml \\
-        [--repair-epochs 2] [--repair-lr 0.001]
 """
 
 from __future__ import annotations

@@ -12,8 +12,6 @@ Reuses:
   - `compute_task_vectors` from src.merging.ties for tau_i.
   - `interpolate_state_dicts` + `_eval_at_point` from src.merging.lmc for midpoint eval.
 
-CLI:
-    python -m src.analysis.mergeability_cosine --config configs/e2_soup.yaml
 """
 
 from __future__ import annotations
@@ -27,18 +25,18 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-import torch  # noqa: E402
-from torch.utils.data import DataLoader, Subset  # noqa: E402
-from torchvision import datasets  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+from torch.utils.data import DataLoader, Subset
+from torchvision import datasets
 
-from src.data.cifar import _build_transforms, get_cifar10_loaders  # noqa: E402
-from src.merging.lmc import _eval_at_point, interpolate_state_dicts  # noqa: E402
-from src.merging.ties import compute_task_vectors  # noqa: E402
-from src.models.resnet20 import resnet20  # noqa: E402
-from src.training.train import load_config  # noqa: E402
-from src.training.utils import device_auto  # noqa: E402
+from src.data.cifar import _build_transforms, get_cifar10_loaders
+from src.merging.lmc import _eval_at_point, interpolate_state_dicts
+from src.merging.ties import compute_task_vectors
+from src.models.resnet20 import resnet20
+from src.training.train import load_config
+from src.training.utils import device_auto
 
 TABLES_DIR = Path("results/tables")
 PLOTS_DIR = Path("results/plots")

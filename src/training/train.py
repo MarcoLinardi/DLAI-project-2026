@@ -3,7 +3,6 @@
 Used as a library by E1-E4 (merging experiments) and as a script for
 the Phase-1 baseline:
 
-    python -m src.training.train --seed 0 --config configs/baseline.yaml
 """
 
 from __future__ import annotations

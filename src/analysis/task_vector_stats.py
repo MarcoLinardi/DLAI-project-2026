@@ -14,8 +14,6 @@ Outputs:
   - results/tables/e2_task_vector_norms.csv
   - results/tables/e4_cosine_stats.csv
 
-CLI:
-    python -m src.analysis.task_vector_stats
 """
 
 from __future__ import annotations

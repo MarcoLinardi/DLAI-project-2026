@@ -6,8 +6,6 @@ vs alpha before (dashed grey) and after (solid color) Git Re-Basin
 alignment. Reads `e3_barriers.csv` for the numeric summary printed at
 the end.
 
-CLI:
-    python -m src.analysis.aggregate_e3
 """
 
 from __future__ import annotations
@@ -17,8 +15,8 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import pandas as pd  # noqa: E402
+import matplotlib.pyplot as plt
+import pandas as pd
 
 TABLES_DIR = Path("results/tables")
 PLOTS_DIR = Path("results/plots")
@@ -27,8 +25,8 @@ BARRIERS_CSV = TABLES_DIR / "e3_barriers.csv"
 PLOT_PATH = PLOTS_DIR / "e3_alignment.png"
 
 PAIR_COLORS = {
-    "E1D_pair0": "#C62828",     # red — diff init, classical Re-Basin case
-    "E2_model0x2": "#1565C0",   # blue — low-resource regime from E2
+    "E1D_pair0": "#C62828",     # red: diff init, classical Re-Basin case
+    "E2_model0x2": "#1565C0",   # blue: low-resource regime from E2
 }
 
 

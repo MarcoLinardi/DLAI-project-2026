@@ -4,7 +4,7 @@ Implements a simplified 3-stage pipeline on task vectors tau_i = theta_i - theta
 
   1. TRIM:    per-model, keep only the top-k% parameters by absolute magnitude
               (threshold computed globally across the concatenated tensor of
-              the task vector, NOT per-layer; this is the Yadav 2023 §3.1
+              the task vector, NOT per-layer; this is the Yadav 2023 3.1
               definition).
   2. ELECT:   per-parameter element, pick the sign majority weighted by
               magnitude across the N trimmed task vectors:

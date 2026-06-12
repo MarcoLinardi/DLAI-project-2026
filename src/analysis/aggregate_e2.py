@@ -3,19 +3,17 @@
 Reads:
   - results/tables/e2_individuals.csv  (5 rows, one per model)
   - results/tables/e2_merging.csv      (4 rows: best, uniform, greedy, ties)
-  - results/tables/baseline_seed0.csv  (50 epoch history → final test_acc as
+  - results/tables/baseline_seed0.csv  (50 epoch history -> final test_acc as
                                         upper-bound oracle on the bar plot)
 
 Writes:
-  - results/tables/e2_summary.csv  — for each method: test_acc, delta vs
+  - results/tables/e2_summary.csv: for each method: test_acc, delta vs
                                      best_single (pp), delta vs uniform (pp)
-  - results/plots/e2_methods_bar.png — bar chart of the 4 methods + 5
+  - results/plots/e2_methods_bar.png: bar chart of the 4 methods + 5
                                        individuals (grey background), with
                                        reference lines for individual-mean
                                        and full-data baseline.
 
-CLI:
-    python -m src.analysis.aggregate_e2
 """
 
 from __future__ import annotations
@@ -25,9 +23,9 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-import pandas as pd  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 TABLES_DIR = Path("results/tables")
 PLOTS_DIR = Path("results/plots")

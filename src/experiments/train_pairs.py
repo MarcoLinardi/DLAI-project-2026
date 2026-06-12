@@ -7,8 +7,6 @@ pair_seed, with isolated seeds for initialization vs SGD-noise:
     init_seed = 1000 + 10*s + k                # same_init=False (setting D)
     sgd_seed  = 10_000*s + k                   # always distinct per member
 
-CLI:
-    python -m src.experiments.train_pairs --config configs/e1_B_sameinit_splitdata.yaml
 """
 
 from __future__ import annotations

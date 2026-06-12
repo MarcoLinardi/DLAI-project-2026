@@ -2,9 +2,9 @@
 
 For each E3 pair (E1D_pair0 + E2_model0x2) produces a 3-bar group showing
 the midpoint test accuracy at three stages of the merging pipeline:
-  1. pre-merge      → naive midpoint, no alignment, BN reset only
-  2. post-AM        → after iterative Activation Matching of model_B onto A
-  3. post-REPAIR    → after 2 epochs of low-LR fine-tune of the merged model
+  1. pre-merge      -> naive midpoint, no alignment, BN reset only
+  2. post-AM        -> after iterative Activation Matching of model_B onto A
+  3. post-REPAIR    -> after 2 epochs of low-LR fine-tune of the merged model
 
 A dashed reference line per group shows the average endpoint accuracy
 (individual models' test acc, averaged) — the upper bound the merge tries
@@ -18,8 +18,6 @@ Writes:
   - results/plots/e3_pipeline.png    (figure 2 of the report)
   - results/tables/e3_pipeline_summary.csv  (raw numbers behind the figure)
 
-CLI:
-    python -m src.analysis.aggregate_final
 """
 
 from __future__ import annotations

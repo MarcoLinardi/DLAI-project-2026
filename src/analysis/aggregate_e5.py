@@ -1,14 +1,14 @@
 """Aggregate E5 data-fraction results into a summary table and figure.
 
 Reads:
-  results/tables/e5_{frac}k/e2_merging.csv    — uniform soup + greedy + TIES per fraction
-  results/tables/e5_{frac}k/e3_repair.csv     — AM+REPAIR midpoint accuracy per fraction
-  results/tables/e2_merging.csv               — baselines for the existing 10k fraction
-  results/tables/e3_repair.csv                — AM+REPAIR for 10k (existing)
+  results/tables/e5_{frac}k/e2_merging.csv     uniform soup + greedy + TIES per fraction
+  results/tables/e5_{frac}k/e3_repair.csv      AM+REPAIR midpoint accuracy per fraction
+  results/tables/e2_merging.csv                baselines for the existing 10k fraction
+  results/tables/e3_repair.csv                 AM+REPAIR for 10k (existing)
 
 Outputs:
-  results/tables/e5_summary.csv   — one row per (fraction, method)
-  results/plots/e5_fraction.png   — accuracy vs samples-per-model, 3 curves
+  results/tables/e5_summary.csv   one row per (fraction, method)
+  results/plots/e5_fraction.png   accuracy vs samples-per-model, 3 curves
 """
 
 from __future__ import annotations

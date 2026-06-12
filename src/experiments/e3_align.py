@@ -2,14 +2,12 @@
 
 For each pair (ckpt1, ckpt2) listed in the config:
   1. Evaluate the linear interpolation curve theta(alpha) = (1-alpha)*A + alpha*B
-     on an 11-point grid (BN-reset at every alpha) → barrier_pre.
-  2. Align ckpt2 to ckpt1 with `find_perms_activation_matching` →  sd_B_aligned.
-  3. Evaluate the curve again with (A, B_aligned) → barrier_post.
+     on an 11-point grid (BN-reset at every alpha) -> barrier_pre.
+  2. Align ckpt2 to ckpt1 with `find_perms_activation_matching` ->  sd_B_aligned.
+  3. Evaluate the curve again with (A, B_aligned) -> barrier_post.
   4. Save B_aligned to results/checkpoints/e3_{pair_name}_m2_aligned.pt and
      write the curve + barrier tables.
 
-CLI:
-    python -m src.experiments.e3_align --config configs/e3_align.yaml
 """
 
 from __future__ import annotations

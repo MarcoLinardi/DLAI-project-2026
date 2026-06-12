@@ -5,8 +5,6 @@ sweeps the interpolation alpha grid, re-estimates BatchNorm stats at
 every point, evaluates on a 5000-sample train subset and the full test
 set, computes the error barrier, and writes results/tables/e1_{setting}.csv.
 
-CLI:
-    python -m src.experiments.e1_lmc --config configs/e1_B_sameinit_splitdata.yaml
 """
 
 from __future__ import annotations

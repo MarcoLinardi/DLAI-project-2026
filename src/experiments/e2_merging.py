@@ -13,11 +13,9 @@ Computes for each method:
 
 For every method we re-estimate BatchNorm running stats (40 batches of
 augmented train data) before evaluation, exactly as in E1. Skipping the
-BN reset on merged models collapses accuracy to ~10% — the rest of the
+BN reset on merged models collapses accuracy to ~10%, the rest of the
 pipeline assumes this step is always done.
 
-CLI:
-    python -m src.experiments.e2_merging --config configs/e2_soup.yaml
 """
 
 from __future__ import annotations

@@ -6,11 +6,9 @@ the batch order / augmentation are independent per model.
 
 The shared init is the canonical Wortsman 2022 / Yadav 2023 setup for
 model soup and task arithmetic: keeps all theta_i in the same linear-mode
-basin (we verified this empirically in E1 setting B → low barrier), so
+basin (we verified this empirically in E1 setting B -> low barrier), so
 that uniform averaging has a geometric meaning.
 
-CLI:
-    python -m src.experiments.train_e2 --config configs/e2_soup.yaml
 """
 
 from __future__ import annotations

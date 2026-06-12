@@ -3,11 +3,9 @@
 Reads results/tables/e1_{A,B,D}.csv produced by src.experiments.e1_lmc,
 computes barriers per (setting, pair_seed), aggregates mean/std over
 pair_seed, writes results/tables/e1_barriers_summary.csv, and saves
-results/plots/e1_test_loss_vs_alpha.png — the figure that goes in the
+results/plots/e1_test_loss_vs_alpha.png, the figure that goes in the
 2-page report.
 
-CLI:
-    python -m src.analysis.aggregate_e1
 """
 
 from __future__ import annotations
@@ -15,12 +13,12 @@ from __future__ import annotations
 from pathlib import Path
 
 import matplotlib
-matplotlib.use("Agg")  # non-interactive backend (Colab + headless safe)
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-import pandas as pd  # noqa: E402
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
-from src.merging.lmc import error_barrier  # noqa: E402
+from src.merging.lmc import error_barrier
 
 SETTINGS = ("A", "B", "D")
 TABLES_DIR = Path("results/tables")

@@ -8,9 +8,6 @@ the trim ratio fixed at the same value used in `e2_merging.py`.
 Outputs:
   - results/tables/e2_ties_sweep.csv  (one row per lam value)
 
-CLI:
-    python -m src.experiments.e2_ties_sweep --config configs/e2_soup.yaml \
-        [--lams 0.3 0.5 1.0 1.5]
 """
 
 from __future__ import annotations

@@ -18,8 +18,6 @@ to zero?", which is the implicit assumption of task arithmetic.
 Reuses evaluate_on_alpha_grid and error_barrier from src.merging.lmc and
 the train_eval loader logic from src.experiments.e1_lmc and e2_merging.
 
-CLI:
-    python -m src.experiments.e2_lmc_check --config configs/e2_soup.yaml
 """
 
 from __future__ import annotations
