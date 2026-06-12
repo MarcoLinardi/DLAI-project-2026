@@ -1,6 +1,8 @@
-# Permutation Alignment and Repair Close the Merging Gap in Low-Resource Regimes
+# Permutation Alignment and REPAIR Close the Merging Gap in Low-Resource Regimes
 
 Project for **Deep Learning & Applied AI** (DLAI), a.y. 2025/26, Sapienza University of Rome.
+
+**Author:** Marco Linardi (matricola 2003980) — linardi.2003980@studenti.uniroma1.it
 
 ## Motivation
 
@@ -14,12 +16,12 @@ Five ResNet-20 models share the same initialisation but are each trained on a di
 Standard merging methods (uniform soup, greedy soup, TIES) all collapse to near-random or degenerate to a single-model result. The project then applies a two-step recovery pipeline:
 
 1. **Activation Matching** (Ainsworth et al. 2023) — iterative Hungarian assignment on channel-wise activation correlations resolves the channel-permutation ambiguity of CNNs and collapses the artificial LMC barrier.
-2. **Repair** (Jordan et al. 2023) — two epochs of low learning rate SGD on the merged model corrects the residual BatchNorm feature scale drift.
+2. **REPAIR step** — BatchNorm reset followed by two epochs of low-learning-rate SGD on the merged model corrects the residual feature-scale drift (a stronger variant of REPAIR, Jordan et al. 2023, who propose renormalising per-channel activation statistics).
 
 The pipeline is evaluated on five pairs (one different init, four low resource), achieving **76.5%** and **68.2 ± 1.0%** midpoint accuracy respectively, recovering more than 80% of the random-to-endpoint gap. A data-fraction study (1k–10k samples per model) shows the pipeline remains effective across all regimes and at 1k samples per model even surpasses the greedy single-model baseline.
 
 ## Additional findings
 
-- **TIES failure mode**: the default λ=1.0 is miscalibrated for this regime, task-vector norms are 0.93–1.44× the base-model norm, far larger than in fine-tuning settings. With λ=0.3, TIES recovers 77.0%, matching or exceeding individual model accuracy.
-- **Cosine mergeability metric**: pairwise cosine similarity of task vectors does not predict accuracy drop after merging (Pearson r = +0.28, p = 0.43, n = 10). The metric saturates in this regime, all pairs cluster in a narrow range regardless of cosine.
-- **Repair epoch ablation**: accuracy continues to improve beyond 2 epochs without a clear plateau, suggesting the two-epoch result is a conservative lower bound.
+- **TIES failure mode**: the default λ=1.0 is miscalibrated for this regime: task-vector norms are 0.93–1.44× the base-model norm, far larger than in fine-tuning settings. With λ=0.3, TIES recovers 77.0%, matching or exceeding individual model accuracy.
+- **Cosine mergeability metric**: pairwise cosine similarity of task vectors does not predict accuracy drop after merging (Pearson r = +0.28, p = 0.43, n = 10). The metric saturates in this regime; all pairs cluster in a narrow range regardless of cosine.
+- **REPAIR epoch ablation**: accuracy continues to improve beyond 2 epochs without a clear plateau, suggesting the two-epoch result is a conservative lower bound.
