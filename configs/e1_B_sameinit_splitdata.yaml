@@ -1,8 +1,8 @@
-# E1 setting B — same initialization, disjoint training data.
-# Frankle 2020 §3: misura la "stabilità all'SGD noise". Stessa init →
+# E1 setting B: same initialization, disjoint training data.
+# Frankle 2020: misura la "stabilità all'SGD noise". Stessa init ->
 # entrambi i membri partono dallo stesso punto in θ-space; SGD-noise
 # (ordine dei batch + augmentation) e dati disgiunti li portano in
-# direzioni diverse. Barriera attesa: piccola (~0.05–0.15 test_loss).
+# direzioni diverse. Barriera attesa: piccola.
 
 epochs: 30
 batch_size: 128

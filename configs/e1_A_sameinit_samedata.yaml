@@ -1,5 +1,5 @@
-# E1 setting A — sanity check (same init, same data).
-# m1 = m2 = baseline → barriera teorica = 0. Non si addestra nulla:
+# E1 setting A: sanity check (same init, same data).
+# m1 = m2 = baseline -> barriera teorica = 0. Non si addestra nulla:
 # train_pairs.py riconosce reuse_baseline=true ed esce; e1_lmc.py carica
 # baseline_seed0.pt per entrambi i membri della "coppia".
 

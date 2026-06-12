@@ -1,8 +1,8 @@
-# E1 setting D — different initialization AND disjoint data.
+# E1 setting D: different initialization AND disjoint data.
 # Caso massimamente disgiunto: i due modelli partono da punti diversi
-# in θ-space e vedono dati diversi → finiscono in valli separate da
-# creste. Barriera attesa: alta (~0.5–2.0 test_loss, accuracy crolla
-# a 30–50% al centro). Skipping setting C (diff-init + same-data) come
+# in θ-space e vedono dati diversi -> finiscono in valli separate da
+# creste. Barriera attesa: alta, accuracy crolla a 30–50% al centro.
+# Skipping setting C (diff-init + same-data) come
 # ridondante per il messaggio scientifico.
 
 epochs: 30

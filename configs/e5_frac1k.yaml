@@ -1,4 +1,4 @@
-# E5 — Data fraction study: 1k samples per model (n_parts=50, 5 models)
+# E5: Data fraction study: 1k samples per model
 epochs: 30
 batch_size: 128
 lr: 0.1

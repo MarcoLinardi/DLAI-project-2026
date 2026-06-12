@@ -1,6 +1,5 @@
 # Baseline training of ResNet-20 on CIFAR-10.
-# Paper-aligned (He et al. 2015), with epochs reduced from 200 to 50
-# as a Colab-T4-friendly compromise. Expected test accuracy: ~90%.
+# Paper-aligned (He et al. 2015), with epochs reduced from 200 to 50.
 
 epochs: 50
 batch_size: 128
@@ -23,5 +22,4 @@ augment: true
 checkpoint_dir: results/checkpoints
 history_dir: results/tables
 
-# Misc
 log_every: 100

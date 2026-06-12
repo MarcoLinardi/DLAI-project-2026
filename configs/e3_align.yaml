@@ -38,4 +38,4 @@ e3:
   alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
   bn_reset_batches: 200
   align_n_samples: 512
-  align_max_iters: 5      # iterative AM (Ainsworth 2023 §3.3); converges in 3-5 iters
+  align_max_iters: 5      # iterative AM (Ainsworth 2023); converges in 3-5 iters
